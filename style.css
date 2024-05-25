@@ -1,0 +1,370 @@
+@keyframes border-move{
+    0% {   box-shadow: 2px 2px 5px 1px black;}
+    20% {   box-shadow: 3px 3px 5px 4px rgb(148, 63, 142);}
+    50% { box-shadow: 1px 2px 3px 2px rgb(103, 205, 228)}
+    80% { box-shadow: 3px 2px 7px 3pxpx rgb(247, 247, 247)}
+    100% {   box-shadow: 2px 2px 5px 1px black;}
+}
+
+
+body{
+    background-image: url("./Futuristic_sci_fi_banner_background_with_modern_wireframe_terrain_design_2402.jpg");
+    background-size: cover;
+}
+
+.main-menu{
+    width: 60%;
+
+    margin: 60 auto;
+    
+    
+}
+.main-menu h1{
+    color:white;
+    font-size: 5rem;
+    text-align: center;
+    
+}
+
+.menu-options{
+   
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   padding:2% 0;
+   background-image: linear-gradient( rgb(49, 28, 118),rgba(77, 25, 82, 0.291));
+   box-shadow: 3px 3px 5px  rgb(38, 12, 63);
+   border-radius: 10px;
+}
+
+.play-button{
+    width:30vw;
+    max-width:200px;
+    border-radius: 50%;
+    box-shadow: 3px 3px 3px 3px rgb(5, 12, 42);
+    margin: auto;
+    
+
+}
+
+.menu-options img:hover{
+    box-shadow: 3px 3px 3px 10px rgba(59, 35, 132, 0.469); 
+    background-color: rgba(179, 45, 168, 0.613);
+    cursor: pointer;
+
+}
+
+#how-to-play{
+    padding:3%;
+    width: 60%;
+    margin: 5% auto;
+    max-width:200px;
+    background-color: rgb(49, 28, 118);
+    color: white;
+    font-weight: bolder;
+    text-shadow: 3px 3px 3px rgb(15, 0, 0);
+    box-shadow: 3px 3px 3px rgb(15, 0, 0);
+    border-radius: 10px;
+    
+}
+
+#how-to-play:hover{
+background-color: white;
+color: black;
+text-shadow: 1px 1px 1px rgb(4, 0, 0);
+cursor: pointer;
+}
+
+
+.category{
+    color:white;
+}
+
+#category-heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-around
+}
+
+#category-heading h1{
+    font-size: 4rem;
+}
+
+.back-button{
+    background-color: rgba(255, 192, 203, 0.484);
+    padding: 1.5%;
+    border-radius: 5px;
+}
+
+.back-button:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 2px 3px white;
+}
+
+.categories{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 0 5%;
+    
+}
+.category-option{
+    background-color: rgb(84, 130, 209);
+    margin: 5% auto;
+    width:15vw;
+    height: 15vh;;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    justify-content: space-around;
+    text-align: center;
+    border: 2px solid rgb(128, 54, 139);
+    box-shadow: 2px 2px 5px 1px black;
+    border-radius: 10%;
+    font-size: 2.5vw;
+    font-weight: bolder;
+}
+
+.category-option:hover{
+    color: rgb(199, 59, 207);
+    cursor: pointer;
+    background-color:rgb(159, 180, 217);
+    animation-name: border-move;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    
+}
+
+.play-area-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+
+.menu-icon{
+    background-color: rgba(54, 153, 202, 0.33);
+    display: flex;
+    height: 8vh;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+   
+}
+
+.menu-icon:hover{
+    background-color: rgba(137, 43, 226, 0.36);
+    cursor: pointer;
+}
+.menu-icon-bar{
+    width:5vw;
+    height: 1vh;
+    background-color: white;
+    margin: 0.5vh;
+    
+}
+
+.play-area-title{
+    color: white;
+    font-size: 5vw;
+    text-align: center;
+}
+
+.health-meter{
+    width: 20vw;
+    height: 3vh;
+    background-color: rgba(0, 208, 255, 0.295);
+    border-radius: 20px;
+    box-shadow: 1px 1px 2px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inner-health{
+    width:100%;
+    height:2vh;
+    background-color: green;
+    align-self: start;
+    border-radius: 20px;
+    
+}
+.inner-health80{
+    width:87.5%;
+    background-color: yellowgreen;
+}
+
+.inner-health70{
+    width:75%;
+    background-color: yellowgreen;
+}
+
+.inner-health60{
+    width:62.5%;
+    background-color: yellow;
+}
+
+.inner-health50{
+    width:50%;
+    background-color: yellow;
+}
+.inner-health30{
+    width:37.5%;
+    background-color: orange;
+}
+.inner-health20{
+    width:25%;
+    background-color: orange;
+}
+.inner-health10{
+    width:12.5%;
+    background-color: red;
+}
+.inner-health0{
+    width:0%;
+}
+
+
+
+
+.hint{
+    height:30vh;
+}
+
+.hint-letter{
+    background-color: rgba(56, 131, 163, 0.385);
+    height:12vh;
+    width:8vw;
+    margin: 0 1% 2% 1%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 5vw;
+    color: white;
+    font-weight: bolder;
+    box-shadow: 2px 2px 0px 3px rgba(0, 0, 0, 0.515);
+    border-radius: 10%;
+    border: 2px solid rgba(162, 199, 215, 0.433) ;
+}
+.hint-space{
+    height:12vh;
+    width:8vw;
+}
+
+.hint-row1, .hint-row2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.clicked-letter {
+    background-color: rgba(98, 86, 86, 0.848);
+    width:10vw;
+    height: 10vh;
+    margin:1%;
+    text-align: center;
+    border-radius: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    
+}
+
+
+.letters {
+    background-color: white;
+    width:10vw;
+    height: 10vh;
+    margin:1%;
+    text-align: center;
+    border-radius: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    font-weight: bolder;
+    
+}
+
+
+
+.first-line{
+    display: flex;
+    flex-direction: row;
+}
+
+.second-line{
+    display: flex;
+    flex-direction: row;
+}
+.third-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.letters:hover{
+    box-shadow: 0px 0px  3px 3px white;
+    cursor: pointer;
+    color: grey;
+}
+
+.in-game-menu{
+    height: 50vh;;
+    width: 30vw;
+    background-color: rgb(188, 109, 204);
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+    border: 1px solid rgb(143, 172, 235);
+}
+
+.in-game-menu-option{
+    width:80%;
+    margin: 5% auto;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-radius: 10px;
+    background-color: rgb(103, 103, 202);
+    color: white;
+    font-weight: bolder;
+}
+
+.in-game-menu-option:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 2px 2px white;
+}
+
+.game-over-menu{
+    height: 50vh;;
+    width: 30vw;
+    background-color: rgb(188, 109, 204);
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+    border: 1px solid rgb(143, 172, 235);
+}
+
+
+
+
+
+
+
+
+
+
+.hidden{
+    display: none;
+}

@@ -1,0 +1,113 @@
+<htmL lang="en">
+
+<head>
+<meta charset= "UTF-8">
+<meta name="viewport" content = "width =device-width, initial-scale =1">
+<title>Hangman Game</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <section class="main-menu hidden">
+        <h1>HANGMAN</h1>
+        <div class="menu-options">
+            <img src="./play-button-icon-png-18919.png" alt="playbutton" class="play-button">
+            <button type="menu" id="how-to-play">HOW TO PLAY</button>
+        </div>
+    </section>
+
+    <section class="category">
+        <div id = "category-heading">
+        <h1>Pick a Category</h1>
+        <p class="back-button">Back</p>
+        </div>
+        <div class="categories">
+            <div class="category-option">MOVIES</div>
+            <div class="category-option">TV SHOWS</div>
+            <div class="category-option">COUNTRIES</div>
+            <div class="category-option">CAPITAL CITIES</div>
+            <div class="category-option">ANIMALS</div>
+            <div class="category-option">SPORTS</div>
+        </div>
+    </section>
+
+    <section class ="play-area hidden">
+        <div class="play-area-heading">
+            <div class="menu-icon">
+                <div class="menu-icon-bar"></div>
+                <div class="menu-icon-bar"></div>
+                <div class="menu-icon-bar"></div>
+            </div>
+            <h1 class = "play-area-title">TV SHOWS</h1>
+            <div class="health-meter">
+                <div class="inner-health"></div> 
+            </div>
+        </div>
+
+        <div class="hint">
+            <div class="hint-row1">
+                <!-- <p class="hint-letter"></p> -->
+                <!-- <p class="hint-space"></p -->
+                <!-- <p class="hint-letter"></p>
+                <p class="hint-letter"></p> -->
+            </div>
+            <div class="hint-row2">
+                <!-- <p class="hint-letter">W</p> -->
+            </div>
+        </div>
+
+        <div class=" letters-div">
+            <div class="first-line">
+                <p class="clicked-letter letters">Q</p>
+                <p class="clicked-letter letters">W</p>
+                <p class="clicked-letter letters ">E</p>
+                <p class="clicked-letter letters ">R</p>
+                <p class="clicked-letter letters ">T</p>
+                <p class="clicked-letter letters ">Y</p>
+                <p class="clicked-letter letters ">U</p>
+                <p class="clicked-letter letters ">I</p>
+                <p class="clicked-letter letters ">O</p>
+                <p class="clicked-letter letters ">P</p>
+            </div>
+            <div class="second-line">
+                <p class="clicked-letter letters ">A</p>
+                <p class="clicked-letter letters ">S</p>
+                <p class="clicked-letter letters ">D</p>
+                <p class="clicked-letter letters ">F</p>
+                <p class="clicked-letter letters ">G</p>
+                <p class="clicked-letter letters ">H</p>
+                <p class="clicked-letter letters ">J</p>
+                <p class="clicked-letter letters ">K</p>
+                <p class="clicked-letter letters ">L</p>
+            </div>
+            <div class="third-line">
+                <p class="clicked-letter letters ">Z</p>
+                <p class="clicked-letter letters ">X</p>
+                <p class="clicked-letter letters ">C</p>
+                <p class="clicked-letter letters ">V</p>
+                <p class="clicked-letter letters ">B</p>
+                <p class="clicked-letter letters ">N</p>
+                <p class="clicked-letter letters ">M</p>
+            </div>
+        </div>
+        <div class="in-game-menu hidden">
+            <button class="in-game-menu-option continue" type="menu">Continue</button>
+            <button class="in-game-menu-option new-game" type="menu">New Game</button>
+            <button class="in-game-menu-option new-category" type="menu">New Category</button>
+        </div>
+
+        <div class="game-over-menu hidden">
+            <button class="in-game-menu-option new-game" type="menu">New Game</button>
+            <button class="in-game-menu-option new-category" type="menu">New Category</button>
+        </div>
+        
+
+    </section>
+
+<script src="./data.json"></script>
+<script src="./index.js"></script>
+</body>
+
+
+
+</htmL>
