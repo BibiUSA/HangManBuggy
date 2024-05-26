@@ -30,52 +30,55 @@ document.addEventListener("DOMContentLoaded", function () {
            
             let data= json;
             
-        
+let magicWord =null;        
 let currentCategory;
 let  health =8;
+let spaceLocation = 0;
+let numOfSpaces =0;
 
+
+function reset(){   //sets some of the global parameters back to original
+    magicWord =null;  // we need to reset the magicWord to empty somehow to avoid issues when clicking new game or new category 
+    health = 8;
+    spaceLocation = 0;
+     numOfSpaces =0;
+     healthMeter.classList.remove("inner-health80","inner-health70","inner-health60","inner-health50","inner-health30","inner-health20","inner-health10");
+}
 
 
 
 playButton.addEventListener("click", function (){
     mainMenuSection.classList.add("hidden");
     categorySection.classList.remove("hidden");
-})
+});
 
 backButton.addEventListener("click", function (){
     categorySection.classList.add("hidden");
     mainMenuSection.classList.remove("hidden");
-})
+});
 
 for(let i=0; i<categoryOption.length; i++){
 categoryOption[i].addEventListener("click", function(){
     playAreaSection.classList.remove("hidden");
     categorySection.classList.add("hidden");
     if(i==0){
-        let magicWordBefore = magicWordCreator("Movies");
-        let magicWord = magicWordBefore.toUpperCase();
-        console.log(magicWord);
+        magicWord = magicWordCreator("Movies");
         letterClick(magicWord);
     } else if (i==1){
-        let magicWordBefore = magicWordCreator("TV Shows");
-        let magicWord = magicWordBefore.toUpperCase();
+        magicWord = magicWordCreator("TV Shows");
         letterClick(magicWord);
     } else if (i==2){
-        let magicWordBefore = magicWordCreator("Countries");
-        let magicWord = magicWordBefore.toUpperCase();
+        magicWord = magicWordCreator("Countries");
         letterClick(magicWord);
     } else if (i==3){
-        let magicWordBefore =magicWordCreator("Capital Cities");
-        let magicWord = magicWordBefore.toUpperCase();
+        magicWord =magicWordCreator("Capital Cities");
         letterClick(magicWord);
     } else if (i==4){
-        let magicWordBefore = magicWordCreator("Animals");
-        let magicWord = magicWordBefore.toUpperCase();
+        magicWord = magicWordCreator("Animals");
         letterClick(magicWord);
     } else if (i==5){
         // magicWordCreator("Sports");
-        let magicWordBefore =magicWordCreator("Sports");
-        let magicWord = magicWordBefore.toUpperCase();
+        magicWord =magicWordCreator("Sports");
         letterClick(magicWord);
     }
 
@@ -84,28 +87,31 @@ categoryOption[i].addEventListener("click", function(){
 
 menuIcon.addEventListener("click", function(){
     inGameMenu.classList.toggle("hidden");
-})
+});
 
 resume.addEventListener("click", function(){
     inGameMenu.classList.toggle("hidden");
-})
+});
 
 //checks and sees if menu icons are clicked in game menu and gameover menu
 for (let i=0; i <newCategory.length; i++){ 
 newGame[i].addEventListener("click", function(){ //newgame button
+    reset();
+    console.log(health + ""  +spaceLocation + " " + numOfSpaces + "health, spaceloc,numofspaces");
     inGameMenu.classList.add("hidden");
     gameOverMenu.classList.add("hidden");
     for (let i =0; i < letters.length; i++){
         letters[i].classList.add("letters")
         }
-    let magicWordBefore = magicWordCreator(currentCategory);
-    let magicWord = magicWordBefore.toUpperCase();
+    magicWord = magicWordCreator(currentCategory);
     letterClick(magicWord);
 })
 
 //newcategory button
 
 newCategory[i].addEventListener("click", function(){
+    reset();
+    console.log(health + ""  +spaceLocation + " " + numOfSpaces + "health, spaceloc,numofspaces");
     inGameMenu.classList.add("hidden");
     gameOverMenu.classList.add("hidden");
     playAreaSection.classList.add("hidden");
@@ -119,36 +125,32 @@ newCategory[i].addEventListener("click", function(){
 
 //checking to see if letters are in the magicWord
 function letterClick(magicWord){
+    console.log(magicWord +"+++");
     for (let i=0; i < letters.length; i++){
         letters[i].addEventListener("click", function(){
             const clickedLetter = letters[i].innerHTML;
-            let numOfSpaces= 0;
-            let spaceLocation = 0;
-            for(let j = 0; j <magicWord.length; j++){
-                if (magicWord[j]===" "){
-                    numOfSpaces++;
-                    spaceLocation = j;
-                    }else{
-                        numOfSpaces =0;
-                        spaceLocation=0;
-                    }
-            }
+            letters[i].classList.remove("letters");
+            // let numOfSpaces= 0;
+            // let spaceLocation = 0;
+            console.log(magicWord + "came thru");  //THIS IS BRINGING MORE THAN TWO WORDS AFTER CLICKING NEW GAME OR NEW CATEGORY
+            // for(let j = 0; j <magicWord.length; j++){
+            //     if (magicWord[j]===" "){
+            //         numOfSpaces++;
+            //         spaceLocation = j;
+            //         }else{
+            //             numOfSpaces =0;
+            //             spaceLocation=0;
+            //         }
+            // }
             if(magicWord.includes(clickedLetter)){
                 for(let j=0; j< magicWord.length; j++){
                     if (clickedLetter.includes(magicWord[j])){  
-                        const newLetter = document.querySelectorAll(".hint-letter");
-                        if (spaceLocation>0 && j > spaceLocation){
-                            console.log("its being run");
-                            newLetter[j-1].innerHTML = clickedLetter;
-                        }else{                   
-                        newLetter[j].innerHTML = clickedLetter;
-                        }
+                        const newLetter = document.querySelectorAll(".hint p");            
+                            newLetter[j].innerHTML = clickedLetter;
                     }
                 }
-                letters[i].classList.remove("letters");
-
+                youWin();
             } else{ //when letter isn't there
-                letters[i].classList.remove("letters");
                 health--;
                 if(health ===7){
                     healthMeter.classList.add("inner-health80")
@@ -168,10 +170,13 @@ function letterClick(magicWord){
                 if (health === 0){
                     gameOverMenu.classList.remove("hidden");
                     healthMeter.classList.add("inner-health0");
+                    
                 }
             }
         })
+
     }
+    
 }
 
 
@@ -186,23 +191,27 @@ function magicWordCreator(category){
     while(hintRow2.lastElementChild){ 
         hintRow2.removeChild(hintRow2.lastElementChild) 
     }
-    let magicNum = Math.floor(Math.random()*data["categories"][category].length) //choosing randomNUm
-   let magicWord = data["categories"][category][magicNum]["name"]; //choosing the data based on randomNum
+    magicNum = Math.floor(Math.random()*data["categories"][category].length) //choosing randomNUm
+   magicWord = data["categories"][category][magicNum]["name"]; //choosing the data based on randomNum
+   console.log(magicWord);
    if(!magicWord.includes(" ")){  //single line if there's no space
     for(let j = 0; j <magicWord.length; j++){
         const newLetter= document.createElement("p");
        newLetter.classList.add("hint-letter");
        hintRow1.appendChild(newLetter);
     }
-   } else{
+   } else{    //if magic word has space and then where to put the hint spaces
    let numOfSpaces= 0;
-   let spaceLocation = 0;
-   for(let j = 0; j <magicWord.length; j++){
+   spaceLocation = 0;     
+   for(let j = 0; j <magicWord.length; j++){    //checking for spacelocation
     if (magicWord[j]===" "){
         numOfSpaces++;
         spaceLocation = j;
     }
     }
+ 
+
+
     for(let j = 0; j <magicWord.length; j++){ //if there's space, we're adding everything after last space to a new line
         if (magicWord[j]===" "){
         const newSpace = document.createElement("p");
@@ -219,17 +228,32 @@ function magicWordCreator(category){
             hintRow2.appendChild(newLetter);
         }
     }
-    
- 
-   }
-    }
-    return magicWord;
+}
+ } //where the else no space condition ends here
+   magicWord = magicWord.toUpperCase();
+   return magicWord;
 }
 
 
 
 
+// using this to see where the space is on the word
 
+// to see if you've guessed all the parts and won
+
+function youWin(){
+    let won = true;
+    const letterCheck = document.querySelectorAll(".hint-letter");
+    for (let i=0; i < letterCheck.length; i++){
+       if (letterCheck[i].childNodes.length ==0){
+        won =false;
+        console.log("still empty spaces");
+       }
+    }
+    if (won==true){
+        gameOverMenu.classList.remove("hidden");
+    }
+}
 
 
 
@@ -244,5 +268,5 @@ function magicWordCreator(category){
 });
 
 
-
 });
+

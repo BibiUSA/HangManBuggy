@@ -249,6 +249,7 @@ cursor: pointer;
 .hint-space{
     height:12vh;
     width:8vw;
+    background-color: brown;
 }
 
 .hint-row1, .hint-row2{
