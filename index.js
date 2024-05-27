@@ -35,6 +35,7 @@ let currentCategory;
 let  health =8;
 let spaceLocation = 0;
 let numOfSpaces =0;
+let clickedLetterArr =[];
 
 
 function reset(){   //sets some of the global parameters back to original
@@ -43,6 +44,7 @@ function reset(){   //sets some of the global parameters back to original
     spaceLocation = 0;
      numOfSpaces =0;
      healthMeter.classList.remove("inner-health80","inner-health70","inner-health60","inner-health50","inner-health30","inner-health20","inner-health10");
+     clickedLetterArr.length =0;
 }
 
 
@@ -147,6 +149,7 @@ function letterClick(magicWord){
                     if (clickedLetter.includes(magicWord[j])){  
                         const newLetter = document.querySelectorAll(".hint p");            
                             newLetter[j].innerHTML = clickedLetter;
+                            clickedLetterArr.push(clickedLetter);
                     }
                 }
                 youWin();
@@ -170,6 +173,12 @@ function letterClick(magicWord){
                 if (health === 0){
                     gameOverMenu.classList.remove("hidden");
                     healthMeter.classList.add("inner-health0");
+                    for(let j=0; j< magicWord.length; j++){
+                    if(!clickedLetterArr.includes(magicWord[j])){
+                        const newLetter = document.querySelectorAll(".hint p");   //fills out the answer before ending the game       
+                            newLetter[j].innerHTML = magicWord[j];
+                    }
+                    }
                     
                 }
             }
