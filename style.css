@@ -249,7 +249,7 @@ cursor: pointer;
 .hint-space{
     height:12vh;
     width:8vw;
-    background-color: brown;
+
 }
 
 .hint-row1, .hint-row2{
@@ -356,6 +356,72 @@ cursor: pointer;
     box-shadow: 2px 2px 5px black;
     border: 1px solid rgb(143, 172, 235);
 }
+
+
+
+
+@media screen and (max-width: 600px)
+{
+    .main-menu{
+        width: 90%;
+        height: 60vh;
+        margin-top: 15vh;
+       
+    } 
+    .main-menu h1{
+        font-size: 14vw;
+    }
+    .menu-options{
+        margin-top: 100px;
+    }
+
+    #category-heading h1{
+        font-size: 12vw;
+    }
+
+    #category-heading{
+        margin: 0 10%;
+    }
+    .back-button{
+        padding: 5%;
+    }
+    .categories{
+        display: grid;
+        grid-template-columns: auto  auto;
+    }
+    .category-option{
+        width:25vw;
+        font-size: 5vw;
+    }
+    .letters {
+    height:5vh
+    }
+    .clicked-letter {
+    height: 5vh;
+    }
+
+    .play-area-title{
+    font-size: 10vw;
+    }
+    .hint{
+        height:40vh;
+        margin-top: 10vh;
+    }
+    .hint-letter{
+    max-width: 10vw;
+    }
+    .in-game-menu, .game-over-menu{
+    width:60vw;
+    top: 10%;
+    left: 20%;
+    }
+
+}
+
+
+
+
+
 
 
 
